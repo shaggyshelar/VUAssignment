@@ -14,7 +14,7 @@ const exampleInitialState = {
       likes: 56,
       id: "1161022966406956503",
       display_src:
-        "https://randomuser.me/api/portraits/men/3.jpg"
+        "https://picsum.photos/260/260/?image=0"
     },
     {
       code: "BAhvZrRwcfu",
@@ -22,7 +22,7 @@ const exampleInitialState = {
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://randomuser.me/api/portraits/men/4.jpg"
+        "https://picsum.photos/260/260/?image=1"
     },
        {
       code: "BAPIPRjQce9",
@@ -30,14 +30,14 @@ const exampleInitialState = {
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://randomuser.me/api/portraits/men/5.jpg"
+        "https://picsum.photos/260/260/?image=2"
     }, {
       code: "BAF_KY4wcRY",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://randomuser.me/api/portraits/men/22.jpg"
+        "https://picsum.photos/260/260/?image=3"
     },
        {
       code: "_4jHytwcUA",
@@ -45,28 +45,28 @@ const exampleInitialState = {
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://randomuser.me/api/portraits/men/9.jpg"
+        "https://picsum.photos/260/260/?image=4"
     }, {
       code: "_zbaOlQcbn",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://randomuser.me/api/portraits/men/21.jpg"
+        "https://picsum.photos/260/260/?image=5"
     }, {
       code: "_rmvQfQce8",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://randomuser.me/api/portraits/men/15.jpg"
+        "https://picsum.photos/260/260/?image=6"
     }, {
       code: "_ep9kiQcVy",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://randomuser.me/api/portraits/men/17.jpg"
+        "https://picsum.photos/260/260/?image=7"
     }
   ]
 }
