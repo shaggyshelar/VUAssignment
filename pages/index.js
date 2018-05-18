@@ -3,14 +3,7 @@ import {connect} from 'react-redux';
 import {startClock, serverRenderClock} from '../store';
 import Link from 'next/link';
 import Examples from '../components/examples';
-
-const Photo = (props) => (
-  <li>
-    <Link href={`/photo?id=${props.id}`}>
-      <a>{props.id}</a>
-    </Link>
-  </li>
-)
+import PhotoComponent from '../components/photoComponent';
 
 class Index extends React.Component {
   static getInitialProps ({ reduxStore, req }) {
@@ -31,17 +24,7 @@ class Index extends React.Component {
 
   render () {
     return (
-      // <Examples />
-      <div>
-        <h2>My blog</h2>
-        <ul>
-          <li>
-            <Photo slug="yet-another-post" id="Yet another post" />
-            <Photo slug="second-post" id="Second post" />
-            <Photo slug="hello-world" id="Hello, world!" />
-          </li>
-        </ul>
-      </div>
+      <PhotoComponent />
     )
   }
 }

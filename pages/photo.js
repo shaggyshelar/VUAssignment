@@ -6,8 +6,6 @@ class Photo extends React.Component {
     static getInitialProps ({ reduxStore, req, query }) {
       const isServer = !!req
       reduxStore.dispatch(serverRenderClock(isServer))
-      console.log('Requ=', query);
-  
       return {selectedId: query.id}
     }
   
