@@ -4,8 +4,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "api-server": "node api-server"
+    "start": "node api-server"
   },
   "dependencies": {
     "axios": "^0.18.0",
