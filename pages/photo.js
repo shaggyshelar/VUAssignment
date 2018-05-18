@@ -5,13 +5,12 @@ import {getPhotoComments} from '../store';
 class Photo extends React.Component {
     static getInitialProps ({ reduxStore, req, query }) {
       const isServer = !!req
-      reduxStore.dispatch(getPhotoComments(query.id))
       return {selectedId: query.id, src: query.src}
     }
 
     componentDidMount() {
       const {dispatch} = this.props;
-      dispatch(getPhotoComments());
+      getPhotoComments({dispatch, id: this.props.selectedId});
     }
   
     render () {
