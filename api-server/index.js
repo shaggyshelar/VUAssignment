@@ -1,38 +1,37 @@
-/* eslint-disable */
-const compression = require("compression");
-const express = require("express");
-const app = express();
-const http = require("http").Server(app);
-const bodyParser = require("body-parser");
-const path = require("path");
+const express = require('express');
+const next = require('next');
+
+const port = parseInt(process.env.PORT, 10) || 3000;
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
 const photos = require("./data/photos");
 const comments = require("./data/comments");
 
-app.use(compression());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.prepare()
+  .then(() => {
+    const server = express()
 
-const port = 8080;
+    server.get('/photo', (req, res) => {
+      return app.render(req, res, '/photo', req.query)
+    })
 
-const router = express.Router();
+    server.route("/photos").get((req, res) => {
+      res.json(photos);
+    });
 
-app.get("/", (req, res) => {
-  res.json({ status: "api working!!" });
-});
+    server.route("/api/comments/:photoCode").get((req, res) => {
+      const comment = comments[req.params.photoCode] || [];
+      res.json(comment);
+    });
 
-router.route("/photos").get((req, res) => {
-  res.json(photos);
-});
+    server.get('*', (req, res) => {
+      return handle(req, res)
+    })
 
-router.route("/comments/:photoCode").get((req, res) => {
-  const comment = comments[req.params.photoCode] || [];
-  res.json(comment);
-});
-
-// register routes
-app.use("/api", router);
-
-app.listen(port, () => {
-  console.log(`server started on ${port}`);
-});
+    server.listen(port, (err) => {
+      if (err) throw err
+      console.log(`> Ready on http://localhost:${port}`)
+    })
+  })

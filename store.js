@@ -6,7 +6,7 @@ import AppConfig from './lib/AppConfig';
 
 const exampleInitialState = {
   loadingComments: false,
-  photoComments: [{"text":"Wes. WE should have lunch.","user":"jdaveknox"},{"text":"#adults","user":"jdaveknox"},{"text":"@jdaveknox yes!","user":"wesbos"},{"text":"😍 love Hamilton!","user":"willowtreemegs"}],
+  photoComments: [],
   photos : [
     {
       code: "BAcyDyQwcXX",
@@ -14,59 +14,59 @@ const exampleInitialState = {
       likes: 56,
       id: "1161022966406956503",
       display_src:
-        "https://scontent.cdninstagram.com/hphotos-xap1/t51.2885-15/e35/12552326_495932673919321_1443393332_n.jpg"
+        "https://randomuser.me/api/portraits/men/3.jpg"
     },
     {
-      code: "BAcJeJrQca9",
+      code: "BAhvZrRwcfu",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e35/12407344_1283694208323785_735653395_n.jpg"
+        "https://randomuser.me/api/portraits/men/4.jpg"
     },
        {
-      code: "BAcJeJrQca9",
+      code: "BAPIPRjQce9",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e35/12407344_1283694208323785_735653395_n.jpg"
+        "https://randomuser.me/api/portraits/men/5.jpg"
     }, {
-      code: "BAcJeJrQca9",
+      code: "BAF_KY4wcRY",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e35/12407344_1283694208323785_735653395_n.jpg"
+        "https://randomuser.me/api/portraits/men/22.jpg"
     },
        {
-      code: "BAcJeJrQca9",
+      code: "_4jHytwcUA",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e35/12407344_1283694208323785_735653395_n.jpg"
+        "https://randomuser.me/api/portraits/men/9.jpg"
     }, {
-      code: "BAcJeJrQca9",
+      code: "_zbaOlQcbn",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e35/12407344_1283694208323785_735653395_n.jpg"
+        "https://randomuser.me/api/portraits/men/21.jpg"
     }, {
-      code: "BAcJeJrQca9",
+      code: "_rmvQfQce8",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e35/12407344_1283694208323785_735653395_n.jpg"
+        "https://randomuser.me/api/portraits/men/15.jpg"
     }, {
-      code: "BAcJeJrQca9",
+      code: "_ep9kiQcVy",
       caption: "Snow! ⛄️🌨❄️ #lifewithsnickers",
       likes: 59,
       id: "1160844458347054781",
       display_src:
-        "https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e35/12407344_1283694208323785_735653395_n.jpg"
+        "https://randomuser.me/api/portraits/men/17.jpg"
     }
   ]
 }
@@ -99,8 +99,7 @@ export const getPhotoComments = (data) => {
     headers: {"Access-Control-Allow-Origin": "*", 'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH',}
   })
   .then(function (response) {
-    data.dispatch({ type: actionTypes.LOAD_COMMENTS_SUCCESS, id: data.id })
-    console.log(response);
+    data.dispatch({ type: actionTypes.LOAD_COMMENTS_SUCCESS, payload: response.data })
   })
   .catch(function (error) {
     console.log(error);
