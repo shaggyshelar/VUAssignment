@@ -6,6 +6,7 @@ const exampleInitialState = {
   lastUpdate: 0,
   light: false,
   count: 0,
+  photoComments: [{"text":"Wes. WE should have lunch.","user":"jdaveknox"},{"text":"#adults","user":"jdaveknox"},{"text":"@jdaveknox yes!","user":"wesbos"},{"text":"😍 love Hamilton!","user":"willowtreemegs"}],
   photos : [
     {
       code: "BAcyDyQwcXX",
@@ -74,12 +75,17 @@ export const actionTypes = {
   TICK: 'TICK',
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
-  RESET: 'RESET'
+  RESET: 'RESET',
+  LOAD_COMMENTS: 'LOAD_COMMENTS'
 }
 
 // REDUCERS
 export const reducer = (state = exampleInitialState, action) => {
   switch (action.type) {
+    case actionTypes.LOAD_COMMENTS:
+      return Object.assign({}, state, {
+        //photoComments: action.payload,
+      })
     case actionTypes.TICK:
       return Object.assign({}, state, {
         lastUpdate: action.ts,
@@ -104,6 +110,10 @@ export const reducer = (state = exampleInitialState, action) => {
 // ACTIONS
 export const serverRenderClock = (isServer) => dispatch => {
   return dispatch({ type: actionTypes.TICK, light: !isServer, ts: Date.now() })
+}
+
+export const getPhotoComments = (id) => dispatch => {
+  return dispatch({ type: actionTypes.LOAD_COMMENTS, id: id })
 }
 
 export const startClock = dispatch => {
