@@ -4,11 +4,16 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "api-server": "node api-server"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
+    "express": "^4.16.3",
     "next": "latest",
+    "nodemon": "^1.17.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.1",
